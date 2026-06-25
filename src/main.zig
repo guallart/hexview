@@ -23,8 +23,8 @@ pub fn main(init: std.process.Init) !void {
     const file_path = args[1];
 
     var file = std.Io.Dir.cwd().openFile(io, file_path, .{}) catch |err| {
-        try stderr.print("Error: No se puede abrir el archivo '{s}'\n", .{file_path});
-        try stderr.print("Razón: {}\n", .{err});
+        try stderr.print("Error: Could not open the file '{s}'\n", .{file_path});
+        try stderr.print("Reason: {}\n", .{err});
         return;
     };
     defer file.close(io);
